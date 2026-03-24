@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+:root {
+  /* HMI Color Palette */
+  --bg-page: #121212;
+  --bg-card: #1e1e1e;
+  --bg-header: #2a2a2a;
+  
+  --text-primary: #e0e0e0;
+  --text-secondary: #9e9e9e;
+  
+  /* HMI Neon Accents */
+  --accent-cyan: #00e5ff;
+  --accent-green: #00e676;
+  --accent-red: #ff1744;
+  --accent-yellow: #ffea00;
+  --accent-purple: #d500f9;
+  
+  --primary-blue: #2979ff;
+  
+  /* HMI Borders & Shapes */
+  --border-color: #424242;
+  --border-highlight: #757575;
+  
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Layout Utilities */
+.dashboard-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.grid { display: grid; }
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+
+/* Panels & Cards - HMI Style */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card {
+  background: #242424;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Typography Hierarchy */
+.text-label {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-value {
+  color: var(--accent-cyan);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-value-sm {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--accent-cyan);
+}
+
+.text-value-lg {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  color: var(--accent-cyan);
+}
+
+.text-unit {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 0.25rem;
+  text-transform: lowercase;
+}
+
+/* Data Readout Displays */
+.readout {
+  background: #000;
+  border: 1px inset #444;
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+}
+
+/* Specific HMI Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+}
+
+.badge-green { background: rgba(0,230,118,0.1); color: var(--accent-green); border-color: var(--accent-green); }
+.badge-red { background: rgba(255,23,68,0.1); color: var(--accent-red); border-color: var(--accent-red); }
+.badge-yellow { background: rgba(255,234,0,0.1); color: var(--accent-yellow); border-color: var(--accent-yellow); }
+.badge-blue { background: rgba(41,121,255,0.1); color: var(--primary-blue); border-color: var(--primary-blue); }
+.badge-purple { background: rgba(213,0,249,0.1); color: var(--accent-purple); border-color: var(--accent-purple); }
+.badge-gray { background: #333; color: var(--text-secondary); border-color: #555; }
+
+/* Stacklights */
+.stacklight-bulb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  background-color: #2a2a2a;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.stacklight-bulb.active-red { background-color: var(--accent-red); box-shadow: 0 0 10px var(--accent-red), inset 0 0 4px #fff; }
+.stacklight-bulb.active-yellow { background-color: var(--accent-yellow); box-shadow: 0 0 10px var(--accent-yellow), inset 0 0 4px #fff; }
+.stacklight-bulb.active-green { background-color: var(--accent-green); box-shadow: 0 0 10px var(--accent-green), inset 0 0 4px #fff; }
+.stacklight-bulb.active-blue { background-color: var(--primary-blue); box-shadow: 0 0 10px var(--primary-blue), inset 0 0 4px #fff; }
+.stacklight-bulb.active-white { background-color: #fff; box-shadow: 0 0 10px #fff, inset 0 0 4px #aaa; }
+
+/* Progress Bars */
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: #111;
+  border: 1px inset #333;
+  margin-top: 0.25rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-cyan);
+}
+
+/* Modifiers */
+.border-b { border-bottom: 1px solid var(--border-color); }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+
+/* Section Titles */
+.section-title {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-header);
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-cyan);
+}
